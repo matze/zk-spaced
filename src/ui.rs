@@ -117,7 +117,7 @@ where
     let command_line = match state {
         UiState::Hidden => Paragraph::new("[q] quit  [s] show card"),
         UiState::Shown => Paragraph::new(
-            "[q] quit  [0] again  [1] hard  [2] foo  [3] effort  [4] hesitate  [5] easy",
+            "[q] quit  [0] again  [1] very hard  [2] hard  [3] okay  [4] easy  [5] very easy",
         ),
     };
 
