@@ -24,21 +24,18 @@ where
         terminal.draw(|f| draw(f, current.card, &state))?;
 
         if let Event::Key(key) = event::read()? {
+            if matches!(key.code, KeyCode::Char('q')) {
+                return Ok(());
+            }
+
             match state {
-                UiState::Hidden => match key.code {
-                    KeyCode::Char('q') => {
-                        return Ok(());
-                    }
-                    KeyCode::Char('s') => {
+                UiState::Hidden => {
+                    if let KeyCode::Char('s') = key.code {
                         state = UiState::Shown;
                     }
-                    _ => {}
-                },
+                }
                 UiState::Shown => {
                     match key.code {
-                        KeyCode::Char('q') => {
-                            return Ok(());
-                        }
                         KeyCode::Char('0') => {
                             current.state.update(0);
                             state = UiState::Hidden;
