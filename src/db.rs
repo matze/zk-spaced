@@ -83,9 +83,7 @@ impl CardState {
             failed: true,
         }
     }
-}
 
-impl CardState {
     /// Update the card state according to the SM-2 algorithm.
     pub fn update(&mut self, grade: u16) {
         if grade >= 3 {
