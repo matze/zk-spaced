@@ -11,3 +11,7 @@ serde_json = "1"
 time = { version = "0.3", features = ["serde"] }
 tui = "0.19"
 xdg = "2"
+
+[profile.release]
+strip = "debuginfo"
+lto = "fat"
